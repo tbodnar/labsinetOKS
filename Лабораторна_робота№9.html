@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function calZ(v,d) {
+		return (5 +(Math.sin(d+7*v)+2)/(Math.sqrt(2+v)+1));
+	}
+	function calL(v,d){
+		return (Math.pow(d-5*Math.pow(v,2),2)+7*d*v);
+	}
+	function showResult(form){
+		var v = parseInt(form.v.value);
+		var d = parseInt(form.d.value);
+		alert ("Результат Z=" + calZ(v,d) + " Результат L = " + calL(v,d));
+	}
+
+</script>
+	<form>
+		<table>
+			<tr>
+				<th>Введіть d</th>
+				<td><input type="text" name="d"></td>
+				<td rowspan="2"><input type="button" value="Обчислити" onclick="showResult(this.form);"></td>
+			</tr>
+			<tr>
+				<th>Введіть v</th>
+				<td><input type="text" name="v"></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>
