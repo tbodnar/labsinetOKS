@@ -1,0 +1,94 @@
+<html> 
+	<BODY LINK="#FFFFFF" TEXT="#000000" VLINK="#999999" 
+	ALINK="#00FF00" BGCOLOR="#ffffff"> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+
+	<script src="https://code.jquery.com/jquery.min.js"> </script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"> </script>
+	<center>
+
+	<div id="Menu" style="background-color: black; width: 450px; height: 100px;">
+
+	</div>
+
+	
+	<form>
+	<table cellspacing="2" width="450" bgcolor="black" style="color:white"> 
+	<tr align=center>
+		<td><th align=center>Виберіть дeнь:</th></td>
+	</tr>
+	<tr align=center>
+		<th>Понеділок</th>
+		<td><input type="radio"  name="day" value="0">
+	</tr>
+
+	<tr align=center>
+		<th >Вівторок</th>
+		<td><input type="radio" name="day" value="1">
+	</tr>
+
+	<tr align=center>
+		<th >Середа</th>
+		<td><input type="radio"  name="day" value="2">
+	</tr>
+
+	<tr align=center>
+		<th >Четвер</th>
+		<td><input type="radio"  name="day" value="3">
+	</tr>
+
+		<tr align=center>
+		<th >Пятниця</th>
+		<td><input type="radio"  name="day" value="4">
+	</tr>
+
+	<tr align=center>
+		<th >Субота</th>
+		<td><input type="radio"  name="day" value="5">
+	</tr>
+
+	<tr align=center>
+		<th >Неділя</th>
+		<td><input type="radio"  name="day" value="6">
+	</tr>
+
+
+
+	<tr align=center>
+		<td></td>
+		<td ><input type=button value="Ок" onclick="showModal(this.form)" class="btn btn-primary"></td>
+	</tr>
+	</table>
+	</form>
+	
+
+
+	<div id="myModal" class="modal fade"  style="background-color: white; width: 450px; height: 200px; display: none;  background-color: black; color: white ">
+		 <!-- Заголовок модального окна -->
+			 <div class="modal-header" align=right>
+			 	<button type="button" class="close" data-dismiss="modal" ariahidden="true">×</button>
+				 <h4 class="modal-title" align=center>Пошук по базі</h4>
+			 </div>
+				 <!-- Основний вміст модального вікна -->
+				<div class="modal-body" style = " height:90;" id="modalBody"></div>
+			</div>
+	 </center>
+
+	 <script>
+		function showModal (form){
+			var mas = [["Понеділок",3,"4 години 40 хв."],["Вівторок",4,"6 годин 20 хв."],["Середу",3,"4 години 40 хв."],["Четвер",4,"6 годин 20 хв."],["Пятницю",2," 3 години."],["Суботу","немає жодної"],["Неділю","немає жодної"]];
+			if (form.day.value != undefined ){
+				var text = "У " + mas[form.day.value][0] + " у вас " + mas[form.day.value][1] + " пари";
+				if (mas[form.day.value][2]) {
+					text += ", загальною протяжністю " + mas[form.day.value][2];
+				}
+
+			} 
+			document.getElementById("modalBody").innerHTML = text ;
+			$("#myModal").modal('show');
+		}
+
+	</script>
+
+	</body> 
+	</html> 
